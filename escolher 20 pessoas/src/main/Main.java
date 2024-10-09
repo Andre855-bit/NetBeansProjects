@@ -25,7 +25,7 @@ public class Main {
     
     while (cont < 20){
         
-    if("m".equals(sexo1) && idade1>=21){
+    if("m".equalsIgnoreCase(sexo1) && idade1>=21){
         System.out.println("Seu nome é "+nome1);
     }
     if("m".equals(sexo2) && idade2>=21){
