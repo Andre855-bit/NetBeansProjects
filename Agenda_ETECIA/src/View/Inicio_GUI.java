@@ -5,6 +5,8 @@
  */
 package View;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Laboratorio-Info
@@ -42,6 +44,9 @@ public class Inicio_GUI extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         sair_btn = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        cod2_txt = new javax.swing.JTextField();
+        excluir_btn = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -149,15 +154,49 @@ public class Inicio_GUI extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("cadastrar", jPanel3);
 
+        jLabel8.setText("Código");
+
+        cod2_txt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cod2_txtActionPerformed(evt);
+            }
+        });
+
+        excluir_btn.setText("Excluir");
+        excluir_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                excluir_btnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 395, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(156, 156, 156))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(123, 123, 123)
+                        .addComponent(cod2_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(158, 158, 158)
+                        .addComponent(excluir_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(124, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 272, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(67, 67, 67)
+                .addComponent(jLabel8)
+                .addGap(18, 18, 18)
+                .addComponent(cod2_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(excluir_btn)
+                .addContainerGap(112, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Exluir", jPanel1);
@@ -289,7 +328,7 @@ public class Inicio_GUI extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -342,6 +381,19 @@ public class Inicio_GUI extends javax.swing.JFrame {
        Controller.Funcoes_DAO.alterar();
     }//GEN-LAST:event_alterar_btnActionPerformed
 
+    private void cod2_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cod2_txtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cod2_txtActionPerformed
+
+    private void excluir_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluir_btnActionPerformed
+        String x =JOptionPane.showInputDialog(null,"Deseja apagar registro/n 1-sim /n 2-não");
+        int op = Integer.parseInt(x);
+        if(op==1){
+            Controller.Funcoes_DAO.excluir();
+                  }else{
+        JOptionPane.showMessageDialog(null, "Exclusão Cancelada");}
+    }//GEN-LAST:event_excluir_btnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -381,11 +433,13 @@ public class Inicio_GUI extends javax.swing.JFrame {
     private javax.swing.JButton alterar_btn;
     private java.util.List<View.Cliente> clienteList;
     private javax.persistence.Query clienteQuery;
+    public static javax.swing.JTextField cod2_txt;
     public static javax.swing.JTextField cod_txt;
     private javax.swing.JButton consultar_btn;
     public static javax.swing.JTextField email2_txt;
     public static javax.swing.JTextField email_txt;
     private javax.persistence.EntityManager entityManager;
+    private javax.swing.JButton excluir_btn;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
@@ -395,6 +449,7 @@ public class Inicio_GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
